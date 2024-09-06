@@ -13,6 +13,7 @@ func RegisterRoutes(router *gin.Engine, nc *nats.Conn) {
 	router.POST("/hosts", controllers.AddHost)
 	router.PATCH("/hosts/:uuid", controllers.UpdateHost)
 	router.DELETE("/hosts/:uuid", controllers.DeleteHost)
+	router.POST("/modules/:moduleID", controllers.PostModuleRequest(nc))
 
 	// NATS based routes
 	router.GET("/hosts/remote/ping/all", controllers.PingHostAll(nc))

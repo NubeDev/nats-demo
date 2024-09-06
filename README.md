@@ -39,3 +39,21 @@ Ping a client by its `uuid` on the `nats-server`
 ```
 http://0.0.0.0:8080/hosts/remote/ping/<UUID>
 ```
+
+
+
+## Module Example
+
+start the module example `modules/module-abc/main.go`
+
+
+```curl
+curl -X POST http://localhost:8080/modules/my-module \
+-H "Content-Type: application/json" \
+-d '{
+    "requestUUID": "abc123",
+    "method": "hello",
+    "payload": "hello there"
+}'
+
+```
