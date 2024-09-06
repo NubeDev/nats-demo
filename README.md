@@ -33,3 +33,9 @@ Ping all clients connected to the `nats-server`
 ```
 http://0.0.0.0:8080/hosts/remote/ping/all
 ```
+
+Ping a client by its `uuid` on the `nats-server`
+
+```
+http://0.0.0.0:8080/hosts/remote/ping/<UUID>
+```
