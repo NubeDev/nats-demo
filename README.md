@@ -16,13 +16,14 @@ API
 http://localhost:8222/connz
 ```
 
+## Running the example
 
-## Cloud Example
+### Cloud Example
 ```
 go run main.go --uuid=server --port=:8080
 ```
 
-## Edge Example
+### Edge Example
 ```
 go run main.go --uuid=edge --port=:8081
 ```
