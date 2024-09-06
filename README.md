@@ -57,3 +57,15 @@ curl -X POST http://localhost:8080/modules/my-module \
 }'
 
 ```
+
+using the nats `cli`
+
+wild card `sub`
+```
+./nats sub ">"
+```
+
+publish in 2nd terminal
+```
+./nats req module.my-module.hello "whats up"
+```

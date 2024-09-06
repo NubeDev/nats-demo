@@ -7,7 +7,7 @@ import (
 )
 
 // ModuleID is a unique identifier for this module
-const ModuleID = "aidan"
+const ModuleID = "my-module"
 
 func main() {
 	// Connect to NATS server
@@ -33,7 +33,11 @@ func StartModule(nc *nats.Conn, moduleID string) {
 		// Handle the method and return a response
 		response := fmt.Sprintf("Hello from %s, you said: %s", moduleID, string(m.Data))
 		log.Printf("Received 'hello' method call with payload: %s", string(m.Data))
-		m.Respond([]byte(response))
+		err := m.Respond([]byte(response))
+
+		if err != nil {
+			fmt.Printf("Error responding: %v", err)
+		}
 	})
 
 	// Subscribe to another method, "status", for the module

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/nats-io/nats.go"
 	"net/http"
@@ -31,6 +32,7 @@ func PostModuleRequest(nc *nats.Conn) gin.HandlerFunc {
 
 		// Construct NATS request subject
 		natsSubject := "module." + moduleID + "." + request.Method
+		fmt.Println("NEW module message: ", natsSubject)
 
 		// Send request to the module via NATS
 		msg, err := nc.Request(natsSubject, []byte(request.Payload), 2*time.Second)
