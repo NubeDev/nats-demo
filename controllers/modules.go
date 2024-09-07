@@ -15,9 +15,9 @@ type ModuleRequest struct {
 	Payload     string `json:"payload"`
 }
 
-func PostModuleRequest(nc *nats.Conn) gin.HandlerFunc {
+func (c *Controller) PostModuleRequest(nc *nats.Conn) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		moduleID := c.Param("moduleID")
+		moduleID := c.Param("uuid")
 
 		var request struct {
 			RequestUUID string `json:"requestUUID"`
